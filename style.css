@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+:root {
+  --Desaturated-Red: hsl(0, 36%, 70%);
+  --Soft-Red: hsl(0, 93%, 68%);
+  --Dark-Grayish-Red: hsl(0, 6%, 24%);
+}
+
+html {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(
+    135deg,
+    hsl(0, 0%, 100%),
+    hsl(0, 100%, 98%)
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+main {
+  min-width: 375px;
+}
+
+/* right-content */
+.right-content {
+  padding: 0 2em;
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: center;
+}
+
+/* logo */
+.logo {
+  padding: 1.8em 0;
+  text-align: left;
+}
+
+.logo img {
+  height: 1.3em;
+}
+
+/* mobile image */
+.hero-mobile {
+  margin: 0 -2em;
+  width: 100vw;
+  max-width: 700px;
+}
+
+/* wordings */
+.content-heading {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5em;
+  margin: 1.5em 0 0.5em;
+}
+
+.content-heading span:nth-child(1) {
+  color: var(--Desaturated-Red);
+  font-weight: 300;
+}
+
+.content-heading span:nth-child(2) {
+  color: var(--Dark-Grayish-Red);
+}
+
+.content-para {
+  color: var(--Desaturated-Red);
+  font-size: 0.9em;
+  line-height: 1.5;
+  margin-bottom: 2em;
+}
+
+/* form */
+form {
+  position: relative;
+}
+
+.email-div {
+  margin: 1px;
+  border: 1px solid var(--Desaturated-Red);
+  border-radius: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.email-div-error {
+  border: 2px solid var(--Soft-Red);
+}
+
+#email {
+  width: 65%;
+  height: 45px;
+  padding-left: 2em;
+  background-color: transparent;
+  border: none;
+}
+
+#email:focus {
+  background-color: transparent;
+}
+
+#email:-webkit-autofill {
+  -webkit-background-clip: text;
+}
+
+#email::placeholder {
+  font-family: "Josefin Sans", sans-serif;
+  color: var(--Desaturated-Red);
+  opacity: 0.5;
+}
+
+.error-img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 80px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.error-img-show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.submit-btn {
+  height: 47px;
+  width: 65px;
+  border-radius: 45px;
+  border: none;
+  background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 20px 20px hsla(0, 36%, 70%, 0.35);
+}
+
+.submit-btn-error {
+  height: 49px;
+}
+
+.submit-arrow {
+  pointer-events: none;
+}
+
+.submit-arrow:hover {
+  transform: scale(1.1);
+}
+
+.error-msg {
+  font-size: 0.8em;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.5em 0 0 2em;
+  color: var(--Soft-Red);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.error-msg-show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* hero-desktop */
+.hero-desktop {
+  display: none;
+}
+
+/* attribution */
+.attribution {
+  font-size: 11px;
+  padding: 3em 0 1em;
+}
+
+.attribution a {
+  color: var(--Desaturated-Red);
+  text-decoration: none;
+}
+
+@media screen and (min-width: 1200px) {
+  main {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+  }
+  .right-content {
+    padding: 0 10.3em;
+    max-width: unset;
+    text-align: left;
+    flex: 0.83;
+    background-image: url("./images/bg-pattern-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .logo {
+    padding: 4em 0 0;
+  }
+  .logo img {
+    height: 2em;
+  }
+  .hero-mobile {
+    display: none;
+  }
+  .content-heading {
+    font-size: 4em;
+    margin: 2em 0 0.3em;
+  }
+  .content-heading span:nth-child(2) {
+    line-height: 1.2;
+  }
+  .content-para {
+    font-size: 1.1em;
+    line-height: 1.5;
+  }
+  #email {
+    height: 55px;
+  }
+  #email::placeholder {
+    font-size: 1.2em;
+  }
+  .error-img {
+    right: 120px;
+  }
+  .submit-btn {
+    height: 57px;
+    width: 100px;
+  }
+  .submit-btn-error {
+    height: 59px;
+  }
+  .error-msg {
+    font-size: 0.9em;
+    padding: 1em 0 0 2em;
+  }
+  .hero-desktop-div {
+    display: block;
+    flex: 1;
+    background-image: url("./images/hero-desktop.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
