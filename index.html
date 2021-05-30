@@ -10,26 +10,27 @@
 
 <body>
   <main>
-    <div class="right-content">
-      <div class="logo"><img src="./images/logo.svg" alt="logo" /></div>
-      <img class="hero-mobile" src="./images/hero-mobile.jpg" alt="hero-mobile">
+    <div class="logo"><img src="./images/logo.svg" alt="logo" /></div>
+    <div class="hero"></div>
+    <div class="pageContent">
       <h1 class="content-heading"><span>We're</span><span>coming soon</span></h1>
       <p class="content-para">
         Hello fellow shoppers! We're currently building our new fashion store.
         Add your email below to stay up-to-date with announcements and our
         launch deals.
       </p>
-      <form action="#" method="" novalidate>
+      <form action="#" method="POST">
         <div class="email-div">
-          <input type="email" name="email" id="email" placeholder="Email Address">
+          <input type="email" name="email" aria-label="email" id="email" placeholder="Email Address">
         </div>
         <img class="error-img" src="./images/icon-error.svg" alt="icon-error">
-        <button class="submit-btn" type="submit"><img class="submit-arrow" src="./images/icon-arrow.svg" alt="icon-arrow"></button>
+        <button class="submit-btn" type="submit"><img class="submit-arrow" src="./images/icon-arrow.svg"
+            alt="icon-arrow"></button>
+        <p class="error-msg">Please provide a valid email</p>
       </form>
-      <p class="error-msg">Please provide a valid email</p>
+      <!-- <p class="error-msg">Please provide a valid email</p> -->
       <p class="attribution">Coded by <a href="https://github.com/mathew12tan?tab=repositories">Mathew</a></p>
     </div>
-    <div class="hero-desktop-div"></div>
   </main>
 
   <script src="./app.js"></script>

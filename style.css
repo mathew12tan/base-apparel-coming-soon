@@ -30,18 +30,21 @@ body {
 
 main {
   min-width: 375px;
-}
-
-/* right-content */
-.right-content {
+  max-width: 700px;
   padding: 0 2em;
   margin: 0 auto;
-  max-width: 700px;
   text-align: center;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "logo"
+    "hero"
+    "pageContent";
 }
 
 /* logo */
 .logo {
+  grid-area: logo;
   padding: 1.8em 0;
   text-align: left;
 }
@@ -50,14 +53,23 @@ main {
   height: 1.3em;
 }
 
-/* mobile image */
-.hero-mobile {
+/* hero */
+.hero {
+  grid-area: hero;
+  background-image: url("./images/hero-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0 -2em;
+  padding-top: 66.67%;
   width: 100vw;
   max-width: 700px;
 }
 
-/* wordings */
+/* pageContent */
+.pagContent {
+  grid-area: pageContent;
+}
+
 .content-heading {
   text-transform: uppercase;
   letter-spacing: 0.3em;
@@ -97,14 +109,14 @@ form {
   justify-content: space-between;
 }
 
-.email-div-error {
+form.error .email-div{
   border: 2px solid var(--Soft-Red);
 }
 
 #email {
-  width: 65%;
+  width: 100%;
   height: 45px;
-  padding-left: 2em;
+  padding: 0 9em 0 2em;
   background-color: transparent;
   border: none;
 }
@@ -114,7 +126,8 @@ form {
 }
 
 #email:-webkit-autofill {
-  -webkit-background-clip: text;
+  transition: background-color 5000s;
+  -webkit-fill-color: transparent;
 }
 
 #email::placeholder {
@@ -133,13 +146,13 @@ form {
   transition: all 0.5s;
 }
 
-.error-img-show {
+form.error .error-img {
   visibility: visible;
   opacity: 1;
 }
 
 .submit-btn {
-  height: 47px;
+  height: 100%;
   width: 65px;
   border-radius: 45px;
   border: none;
@@ -153,10 +166,6 @@ form {
   box-shadow: 0 20px 20px hsla(0, 36%, 70%, 0.35);
 }
 
-.submit-btn-error {
-  height: 49px;
-}
-
 .submit-arrow {
   pointer-events: none;
 }
@@ -166,30 +175,26 @@ form {
 }
 
 .error-msg {
+  position: absolute;
   font-size: 0.8em;
   font-weight: 600;
   text-align: left;
-  padding: 0.5em 0 0 2em;
+  padding: 1em 2em;
   color: var(--Soft-Red);
   visibility: hidden;
   opacity: 0;
   transition: all 0.5s;
 }
 
-.error-msg-show {
+form.error .error-msg {
   visibility: visible;
   opacity: 1;
-}
-
-/* hero-desktop */
-.hero-desktop {
-  display: none;
 }
 
 /* attribution */
 .attribution {
   font-size: 11px;
-  padding: 3em 0 1em;
+  padding: 5em 0 1em;
 }
 
 .attribution a {
@@ -197,29 +202,41 @@ form {
   text-decoration: none;
 }
 
-@media screen and (min-width: 1200px) {
-  main {
-    display: flex;
-    flex-direction: row;
-    min-height: 100vh;
+@media screen and (min-width: 1280px) {
+  body {
+    background-image: none;
   }
-  .right-content {
-    padding: 0 10.3em;
+  main {
+    min-height: 100vh;
+    min-width: unset;
     max-width: unset;
+    padding: unset;
     text-align: left;
-    flex: 0.83;
-    background-image: url("./images/bg-pattern-desktop.svg");
+    grid-template-rows: min-content auto;
+    grid-template-columns: 1fr 42.5%;
+    grid-template-areas:
+      "logo hero"
+      "pageContent hero";
+    background-image: url("./images/bg-pattern-desktop.svg"),
+      linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 57.5% 100%;
   }
   .logo {
-    padding: 4em 0 0;
+    padding: 4em 10.3em 0;
   }
   .logo img {
     height: 2em;
   }
-  .hero-mobile {
-    display: none;
+  .hero {
+    background-image: url("./images/hero-desktop.jpg");
+    margin: unset;
+    padding-top: unset;
+    width: unset;
+    max-width: unset;
+  }
+  .pageContent {
+    padding: 0 10.3em;
   }
   .content-heading {
     font-size: 4em;
@@ -230,10 +247,10 @@ form {
   }
   .content-para {
     font-size: 1.1em;
-    line-height: 1.5;
   }
   #email {
     height: 55px;
+    padding: 0 12em 0 2em;
   }
   #email::placeholder {
     font-size: 1.2em;
@@ -242,21 +259,9 @@ form {
     right: 120px;
   }
   .submit-btn {
-    height: 57px;
     width: 100px;
-  }
-  .submit-btn-error {
-    height: 59px;
   }
   .error-msg {
     font-size: 0.9em;
-    padding: 1em 0 0 2em;
-  }
-  .hero-desktop-div {
-    display: block;
-    flex: 1;
-    background-image: url("./images/hero-desktop.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 }
